@@ -19,4 +19,19 @@ public class BoxWithColor extends Box {
         this.color = color;
     }
 
+    @Override
+    public String toString() {
+        return  "Box (width: " + getWidth() + ", height: " + getHeight() + ", depth: "
+                + getDepth() + ", weight: " + getWeight() + "color: "  + color + ")";
+    }
+
+//    @Override
+//    public final float calculateVolume() {
+//        return 0;
+//    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode() * color.hashCode();
+    }
 }

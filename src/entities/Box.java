@@ -3,15 +3,15 @@ package entities;
 /**
  * author Maksim Diland
  */
-public class Box {
+public class Box implements Cloneable {
     private float width;
     private float height;
     private float depth;
     private float weight;
 
-//    public Box() {
+    public Box() {
 //        System.out.println("Box's constructor was called");
-//    }
+    }
 
     public Box(float width, float height, float depth, float weight) {
         this.width = width;
@@ -21,8 +21,7 @@ public class Box {
     }
 
 
-
-    public float calculateVolume() {
+    public final float calculateVolume() {
         float volume = width * height * depth;
         return volume;
     }
@@ -61,6 +60,42 @@ public class Box {
 
     public void setWeight(float weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "Box (width: " + width + ", height: " + height + ", depth: " + depth + ", weight: " + weight + ")";
+    }
+
+    @Override
+    public boolean equals(Object otherBox) {
+        if (this == otherBox) {
+            return true;
+        }
+
+        if ( !(otherBox instanceof Box) ) {
+            return false;
+        }
+
+        Box castedBox = (Box) otherBox;
+        if (width == castedBox.getWidth()
+                && height == castedBox.getHeight()
+                && depth == castedBox.getDepth()
+                && weight == castedBox.getWeight() ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (weight * height * depth * weight);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     /*

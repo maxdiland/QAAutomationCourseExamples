@@ -10,11 +10,11 @@ import java.util.Objects;
  */
 public class Example1 {
     public static void main(String[] args) {
-        Box boxWithColor = new BoxWithColor(10F, 10F, 10F, 100F, "green");
-        System.out.println( boxWithColor.calculateVolume() );
+        Object boxWithColor = new BoxWithColor(10F, 10F, 10F, 100F, "green");
+//        System.out.println( boxWithColor.calculateVolume() );
 
 
-        if (boxWithColor instanceof BoxWithColor) {
+        if (boxWithColor instanceof Integer) {
             BoxWithColor boxWithColor1 = (BoxWithColor) boxWithColor;
         }
 
